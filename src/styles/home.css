@@ -1,0 +1,42 @@
+.taskTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+.taskDescription {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.title-diasable {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: rgba(128, 128, 128, 0.478);
+}
+
+.description-disable {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(128, 128, 128, 0.478);
+}
+
+.done-btn-disable {
+    background-color: rgb(140, 244, 140);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.done-btn-disable:hover {
+    background-color: rgb(140, 244, 140);
+}
+
+.delete-btn-disabled {
+    background-color: rgb(242, 117, 117);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.delete-btn-disabled:hover {
+    background-color: rgb(242, 117, 117);
+}
