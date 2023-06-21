@@ -1,9 +1,11 @@
 .taskTitle {
+  width: 100%;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 7px;
 }
 .taskDescription {
+  width: 100%;
   font-size: 18px;
   font-weight: 400;
 }
