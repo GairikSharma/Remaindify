@@ -26,7 +26,7 @@ function DummyNav() {
         alignItems: "center",
         height: "64px"
       }}>
-        <div className="logo">Reminder App</div>
+        <div className="logo">Task Genius</div>
         <div className="dummynavsignin">
           <Button colorScheme="teal" variant="outline" onClick={showbutton}>
             + Sign in

@@ -11,7 +11,7 @@ function Navbar() {
     <>
       <div className="navbar">
         <div className="logo">
-          <Text>Remindify</Text>
+          <Text>Task Genius</Text>
         </div>
 
         <div className="links">
