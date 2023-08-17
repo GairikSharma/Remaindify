@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 import { getDocs } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import Loader from "./components/loader/loader";
+import Landing from "./pages/Landing";
 
 function App() {
   const [alltask, setAlltask] = useState([]);
@@ -77,7 +78,7 @@ function App() {
                 setDesignation,
               }}
             >
-              {user ? <Routing /> : <DummyNav />}
+              {user ? <Routing /> : <Landing />}
             </ReminderContext.Provider>
           </div>
         )}

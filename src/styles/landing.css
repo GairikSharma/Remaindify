@@ -1,0 +1,93 @@
+.landing-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.logo-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  margin-left: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: teal;
+  gap: 10px;
+}
+
+.landing-left {
+  width: 65%;
+  height: 100%;
+}
+
+.landing-page-image {
+  width: 100%;
+  height: 100vh;
+}
+
+.landing-right {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.landing-heading {
+  font-size: 54px;
+  font-weight: 600;
+  margin-left: 20px;
+  margin-right: 20px;
+  line-height: 60px;
+  color: teal;
+}
+
+.intro {
+  margin-top: 20px;
+  font-size: 20px;
+  word-spacing: 3px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.login-options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.sign-up-btn,
+.log-in-btn {
+  width: 280px;
+  height: 54px;
+  background: rgba(52, 99, 255, 0.893);
+  margin-bottom: 15px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  color: white;
+  border-radius: 7.5px;
+}
+
+.btn-google-icon {
+  width: 15%;
+  height: 80%;
+  border-radius: 5px;
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 20px;
+}
