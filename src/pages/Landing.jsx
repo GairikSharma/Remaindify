@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import landing from "../assets/images/landing.jpg";
+import bannerSmall from "../assets/images/bannerSmall.jpg"
 import "../styles/landing.css";
 import googlebtn from "../assets/images/googlebtn.png";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -25,6 +26,7 @@ function Landing() {
       <div className="landing-container">
         <div className="landing-left" data-aos="fade-in">
           <img className="landing-page-image" src={landing} alt="" />
+          <img src={bannerSmall} className="banner-for-small-screen" data-aos="fade-left" alt="" />
         </div>
         <div className="landing-right" data-aos="fade-left">
           <div className="logo-2">

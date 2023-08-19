@@ -15,7 +15,7 @@ function Routing() {
           path="/"
           element={
             <React.Suspense fallback={<Loader />}>
-              <LazyHome />
+              {/* <LazyHome /> */}
             </React.Suspense>
           }
         >

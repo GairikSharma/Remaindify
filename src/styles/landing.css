@@ -7,22 +7,8 @@
   align-items: center;
   overflow-x: hidden;
 }
-
-.logo-2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-
-  margin-left: 20px;
-  font-size: 24px;
-  font-weight: 600;
-  color: teal;
-  gap: 10px;
-}
-
 .landing-left {
-  width: 65%;
+  width: 60%;
   height: 100%;
 }
 
@@ -32,7 +18,7 @@
 }
 
 .landing-right {
-  width: 35%;
+  width: 38%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -41,12 +27,12 @@
 }
 
 .landing-heading {
-  font-size: 54px;
-  font-weight: 600;
+  font-size: 60px;
+  font-weight: 800;
   margin-left: 20px;
   margin-right: 20px;
-  line-height: 60px;
-  color: teal;
+  line-height: 70px;
+  color: grey;
 }
 
 .intro {
@@ -90,4 +76,83 @@
   background-color: white;
   margin-left: 10px;
   margin-right: 20px;
+}
+.banner-for-small-screen {
+  display: none;
+}
+
+@media only screen and (max-width: 1130px) {
+  .landing-left {
+    width: 45%;
+    display: block;
+  }
+  .landing-right {
+    width: 55%;
+  }
+  .landing-container {
+    flex-direction: row-reverse;
+  }
+  .landing-heading {
+    font-size: 50px;
+    font-weight: 800;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 60px;
+  }
+
+  .intro {
+    margin-top: 20px;
+    font-size: 18px;
+    color: rgba(74, 74, 74, 0.886);
+    word-spacing: 3px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .btn-google-icon {
+    width: 15%;
+    height: 80%;
+    border-radius: 5px;
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 20px;
+  }
+  .landing-page-image {
+    display: none;
+  }
+  .banner-for-small-screen {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .landing-left {
+    display: none;
+  }
+
+  .landing-container {
+    justify-content: center;
+    flex-direction: row-reverse;
+  }
+  .landing-right {
+    width: 80%;
+  }
+  .landing-heading {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .intro {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .sign-up-btn {
+    width: 220px;
+    height: 54px;
+  }
+  .btn-google-icon {
+    width: 20%;
+    height: 80%;
+    border-radius: 5px;
+    background-color: white;
+  }
 }

@@ -3,31 +3,31 @@
     height: 64px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: ghostwhite;
 }
-.logo {
+.links-and-logo {
     font-size: 25px;
     font-weight: 600;
     color: teal;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: start;
+    gap: 10px;
     align-items: center;
-    width: 25%;
+    width: 65%;
 }
 .links {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 50%;
 }
-.sign-in{
+.sign-out{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     width: 25%;
 }
@@ -45,7 +45,6 @@
     background: teal;
     transition: width .3s;
 }
-
 .link:hover::after {
     width: 100%;
     transition: width .3s;
@@ -59,4 +58,20 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.menu {
+    display: none;
+}
+
+@media only screen and (max-width: 720px) {
+    .menu {
+        display: block;
+    }
+    .links {
+        display: none;
+    }
+    .sign-out {
+        display: none;
+    }
 }

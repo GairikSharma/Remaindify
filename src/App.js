@@ -29,6 +29,7 @@ function App() {
   const [deletetask, setDeleteTask] = useState(0);
   const [markdone, setMarkDone] = useState(0);
   const [donelist, setDoneList] = useState([]);
+  const [sidebar, setShowSidebar] = useState(false);
 
   const [user] = useAuthState(auth);
   const [isLoading, setIsLoading] = useState(false);
@@ -76,6 +77,8 @@ function App() {
                 setEmail,
                 designation,
                 setDesignation,
+                sidebar, 
+                setShowSidebar
               }}
             >
               {user ? <Routing /> : <Landing />}
