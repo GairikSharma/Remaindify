@@ -45,7 +45,7 @@ function BasicUsage() {
   return (
     <>
       <Button colorScheme="teal" variant="outline" onClick={onOpen}>
-        + Add Task
+        +
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>

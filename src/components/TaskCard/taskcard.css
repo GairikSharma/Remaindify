@@ -1,0 +1,86 @@
+.card-body {
+  width: 30%;
+  min-height: 200px;
+  max-height: auto;
+  border-radius: 15px;
+  background-color: rgba(209, 252, 252, 0.894);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 10px;
+  margin-left: 0;
+}
+.Title-more-btn {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.task-title-diasable {
+  opacity: 0.4;
+}
+.more-btn {
+  width: 18px;
+  height: 18px;
+}
+.task-description {
+  width: 100%;
+  max-height: auto;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.task-description-disable {
+  opacity: 0.4;
+}
+.due-date {
+  width: 100%;
+  height: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  color: rgb(255, 170, 0);
+}
+.due {
+  font-size: 18px;
+}
+.done-delete-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.done-button {
+  font-size: 18px;
+  color: green;
+}
+.delete-button {
+  font-size: 18px;
+  color: red;
+}
+@media only screen and (max-width: 800px) {
+  .card-body {
+    width: 48%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card-body {
+    width: 100%;
+  }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Loader from "./components/loader/loader";
 import Navbar from "./components/navbar/navbar";
+const LazyTaskCard = React.lazy(() => import('./components/TaskCard/TaskCard'));
 const LazyHome = React.lazy(() => import("./pages/home"));
 const LazyDashboard = React.lazy(() => import("./pages/dashboard"));
 const Lazyprofile = React.lazy(() => import("./pages/profile"));
@@ -15,7 +16,8 @@ function Routing() {
           path="/"
           element={
             <React.Suspense fallback={<Loader />}>
-              {/* <LazyHome /> */}
+              <LazyHome />
+              {/* <LazyTaskCard /> */}
             </React.Suspense>
           }
         >

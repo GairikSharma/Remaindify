@@ -27,18 +27,7 @@ function Dashboard() {
   return (
     <>
       <div className="dashboard-container">
-        <Card
-          className="dashboard-card"
-          __css={{
-            width: "380px",
-            height: "90px",
-            borderRadius: "7px",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
-        >
+        <Card className="dashboard-card">
           <CardBody
             __css={{
               width: "80%",
@@ -59,18 +48,7 @@ function Dashboard() {
           </CardBody>
         </Card>
 
-        <Card
-          className="dashboard-card"
-          __css={{
-            width: "380px",
-            height: "90px",
-            borderRadius: "7px",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
-        >
+        <Card className="dashboard-card">
           <CardBody
             __css={{
               width: "80%",
@@ -91,18 +69,7 @@ function Dashboard() {
           </CardBody>
         </Card>
 
-        <Card
-          className="dashboard-card"
-          __css={{
-            width: "380px",
-            height: "90px",
-            borderRadius: "7px",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
-        >
+        <Card className="dashboard-card">
           <CardBody
             __css={{
               width: "80%",
@@ -114,7 +81,9 @@ function Dashboard() {
           >
             <Box>
               <Text className="dashboard-card-heading">Pending</Text>
-              <Text className="dashboard-card-count">{arr.length - statusArr.length}</Text>
+              <Text className="dashboard-card-count">
+                {arr.length - statusArr.length}
+              </Text>
             </Box>
 
             <Box __css={{ fontSize: "44px" }}>

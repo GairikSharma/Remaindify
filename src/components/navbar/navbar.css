@@ -8,7 +8,7 @@
     background-color: ghostwhite;
 }
 .links-and-logo {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 600;
     color: teal;
     display: flex;
@@ -29,11 +29,13 @@
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    width: 25%;
+    width: 30%;
+    font-size: 14.4px;
+    gap: 10px;
 }
 .link {
     margin: 12px;
-    font-size: 18px;
+    font-size: 14.4px;
     font-weight: 500;
     color: teal;
 }

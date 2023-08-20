@@ -1,44 +1,25 @@
-.taskTitle {
+.tasks {
   width: 100%;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 7px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 25px;
+  padding-right: 25px;
+  justify-content: start;
 }
-.taskDescription {
-  width: 100%;
-  font-size: 18px;
-  font-weight: 400;
+.sticky-add-button {
+  position: fixed;
+  font-weight: 600;
+  bottom: 25px;
+  right: 25px;
+  display: none;
 }
-
-.title-diasable {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 7px;
-  color: rgba(128, 128, 128, 0.478);
-}
-
-.description-disable {
-  font-size: 18px;
-  font-weight: 400;
-  color: rgba(128, 128, 128, 0.478);
-}
-
-.done-btn-disable {
-    background-color: rgb(140, 244, 140);
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.done-btn-disable:hover {
-    background-color: rgb(140, 244, 140);
-}
-
-.delete-btn-disabled {
-    background-color: rgb(242, 117, 117);
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.delete-btn-disabled:hover {
-    background-color: rgb(242, 117, 117);
+@media only screen and (max-width: 600px) {
+  .tasks {
+    flex-direction: column;
+  }
+  .sticky-add-button {
+    display: block;
+  }
 }

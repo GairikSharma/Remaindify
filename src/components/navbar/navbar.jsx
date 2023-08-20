@@ -7,6 +7,7 @@ import { BsListTask } from "react-icons/bs";
 import { RiMenu3Line } from "react-icons/ri";
 import { ReminderContext } from "../../context";
 import Sidebar from "../sidebar/Sidebar";
+import BasicUsage from "../modal/modal";
 
 function Navbar() {
   const { sidebar, setShowSidebar } = useContext(ReminderContext);
@@ -45,6 +46,7 @@ function Navbar() {
           onClick={showSideNav}
         />
         <div className="sign-out">
+          <BasicUsage />
           <Button
             colorScheme="teal"
             variant="outline"

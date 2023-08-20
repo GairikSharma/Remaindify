@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../styles/home.css";
+import "../components/TaskCard/taskcard.css";
 import { Card, CardBody, Text, Box, Button } from "@chakra-ui/react";
 import BasicUsage from "../components/modal/modal";
 
@@ -7,6 +8,10 @@ import { db } from "../firebase";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { ReminderContext } from "../context";
 import auth from "../firebase";
+import { MdOutlineFileDownloadDone } from "react-icons/md";
+import { BsTrash } from "react-icons/bs";
+import { SlCalender } from "react-icons/sl";
+import { FiMoreVertical } from "react-icons/fi";
 
 function Home() {
   const [disable, setDisable] = useState(false);
@@ -35,7 +40,7 @@ function Home() {
     if (updateDoc) {
       setDisable(true);
     }
-    window.location.reload(true)
+    window.location.reload(true);
   };
 
   const deleteTask = async (id) => {
@@ -52,11 +57,8 @@ function Home() {
   };
   return (
     <>
-      <center style={{marginTop: "25px"}}>
-        <BasicUsage />
-      </center>
       <div className="tasks">
-        <Card
+          {/* <Card
           __css={{
             borderBottom: "none",
             display: "flex",
@@ -92,9 +94,17 @@ function Home() {
                       }}
                     >
                       <Text
-                      className={(t.status) ? "title-diasable" : "taskTitle"}
-                      >{t.title}</Text>
-                      <Text className={(t.status) ? "description-disable" : "taskDescription"}>{t.description}</Text>
+                        className={t.status ? "title-diasable" : "taskTitle"}
+                      >
+                        {t.title}
+                      </Text>
+                      <Text
+                        className={
+                          t.status ? "description-disable" : "taskDescription"
+                        }
+                      >
+                        {t.description}
+                      </Text>
                     </Box>
                     <Box
                       __css={{
@@ -110,7 +120,7 @@ function Home() {
                         onClick={() => {
                           markAsDone(t.markDone, t.id);
                         }}
-                        className={(t.status) && "done-btn-disable"}
+                        className={t.status && "done-btn-disable"}
                       >
                         Mark as done
                       </Button>
@@ -119,7 +129,7 @@ function Home() {
                         onClick={() => {
                           deleteTask(t.id);
                         }}
-                        className={(t.status) && "delete-btn-disabled"}
+                        className={t.status && "delete-btn-disabled"}
                       >
                         Delete
                       </Button>
@@ -129,7 +139,51 @@ function Home() {
               );
             }
           })}
-        </Card>
+        </Card> */}
+
+          {alltask.map((t) => {
+            if (t.email === auth.currentUser.email) {
+              return (
+                <div className="card-body">
+                  <div className="Title-more-btn">
+                    <div
+                      className={t.status ? "task-title-diasable" : "task-itle"}
+                    >
+                      {t.title}
+                    </div>
+                    <FiMoreVertical className="more-btn" />
+                  </div>
+                  <div
+                    className={
+                      t.status ? "task-description-disable" : "task-description"
+                    }
+                  >
+                    {t.description}
+                  </div>
+                  <div className="due-date">
+                    <SlCalender className="due" /> Due 22-02-2001
+                  </div>
+                  <div className="done-delete-buttons">
+                    <MdOutlineFileDownloadDone
+                      onClick={() => {
+                        markAsDone(t.markDone, t.id);
+                      }}
+                      className="done-button"
+                    />
+                    <BsTrash
+                      onClick={() => {
+                        deleteTask(t.id);
+                      }}
+                      className="delete-button"
+                    />
+                  </div>
+                </div>
+              );
+            }
+          })}
+      </div>
+      <div className="sticky-add-button">
+        <BasicUsage />
       </div>
     </>
   );
