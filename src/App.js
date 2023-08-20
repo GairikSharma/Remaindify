@@ -46,6 +46,8 @@ function App() {
       const task = await getDocs(remainderCollectionRef);
       setAlltask(task.docs.map((t) => ({ ...t.data(), id: t.id })));
       // console.log(task.docs.map((t) => ({ ...t.data(), id: t.id })));
+      console.log('loaded man')
+      console.log('loaded man');
     };
     getTask();
   }, []);
