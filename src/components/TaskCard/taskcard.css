@@ -10,6 +10,7 @@
   justify-content: space-evenly;
   margin: 10px;
   margin-left: 0;
+  transition: 0.5s;
 }
 .Title-more-btn {
   width: 100%;
@@ -55,6 +56,9 @@
 }
 .due {
   font-size: 18px;
+}
+.done {
+  color: green;
 }
 .done-delete-buttons {
   width: 100%;

@@ -7,6 +7,8 @@ import { MdPendingActions } from "react-icons/md";
 import { ReminderContext } from "../context";
 import { useContext } from "react";
 import auth from "../firebase";
+import "../components/dashboard-card/dashboard-card.css"
+
 
 function Dashboard() {
   const { alltask } = useContext(ReminderContext);
@@ -27,7 +29,43 @@ function Dashboard() {
   return (
     <>
       <div className="dashboard-container">
-        <Card className="dashboard-card">
+        {/* <DashboardCard /> */}
+        <div className="dashboard-card-body">
+          <div className="dashboard-card-left">
+            <div className="field-title">Total Task</div>
+            <div className="fiend-count-task">{arr.length}</div>
+          </div>
+          <div className="dashboard-card-right">
+            <div className="dashboard-card-logo">
+              <MdPendingActions />
+            </div>
+          </div>
+        </div>
+
+        <div className="dashboard-card-body">
+          <div className="dashboard-card-left">
+            <div className="field-title">Completed</div>
+            <div className="fiend-count-task">{statusArr.length}</div>
+          </div>
+          <div className="dashboard-card-right">
+            <div className="dashboard-card-logo">
+              <AiOutlineFileDone />
+            </div>
+          </div>
+        </div>
+
+        <div className="dashboard-card-body">
+          <div className="dashboard-card-left">
+            <div className="field-title">Pending</div>
+            <div className="fiend-count-task">{arr.length - statusArr.length}</div>
+          </div>
+          <div className="dashboard-card-right">
+            <div className="dashboard-card-logo">
+              <BsAlarm />
+            </div>
+          </div>
+        </div>
+        {/* <Card className="dashboard-card">
           <CardBody
             __css={{
               width: "80%",
@@ -90,7 +128,7 @@ function Dashboard() {
               <MdPendingActions className="dashboard-icon" />
             </Box>
           </CardBody>
-        </Card>
+        </Card> */}
       </div>
     </>
   );

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./sidebar.css";
 import { TfiClose } from "react-icons/tfi";
 import { ReminderContext } from "../../context";
+import auth from "../../firebase";
+import { Button } from "@chakra-ui/react";
 
 function Sidebar() {
   const { setShowSidebar } = useContext(ReminderContext);
@@ -23,6 +25,15 @@ function Sidebar() {
           <Link className="" to="/profile" onClick={hideSideNav}>
             Profile
           </Link>
+          <Button
+            onClick={() => {
+              auth.signOut();
+            }}
+            variant="outline"
+            color={"white"}
+          >
+            Log Out
+          </Button>
         </div>
       </div>
     </>

@@ -58,7 +58,7 @@ function Home() {
   return (
     <>
       <div className="tasks">
-          {/* <Card
+        {/* <Card
           __css={{
             borderBottom: "none",
             display: "flex",
@@ -141,46 +141,52 @@ function Home() {
           })}
         </Card> */}
 
-          {alltask.map((t) => {
-            if (t.email === auth.currentUser.email) {
-              return (
-                <div className="card-body">
-                  <div className="Title-more-btn">
-                    <div
-                      className={t.status ? "task-title-diasable" : "task-itle"}
-                    >
-                      {t.title}
-                    </div>
-                    <FiMoreVertical className="more-btn" />
-                  </div>
+        {alltask.map((t) => {
+          if (t.email === auth.currentUser.email) {
+            return (
+              <div className="card-body">
+                <div className="Title-more-btn">
                   <div
-                    className={
-                      t.status ? "task-description-disable" : "task-description"
-                    }
+                    className={t.status ? "task-title-diasable" : "task-title"}
                   >
-                    {t.description}
+                    {t.title}
                   </div>
+                  <FiMoreVertical className="more-btn" />
+                </div>
+                <div
+                  className={
+                    t.status ? "task-description-disable" : "task-description"
+                  }
+                >
+                  {t.description}
+                </div>
+                {t.status ? (
+                  <div className="due-date">
+                    <div className="done">Done</div>
+                  </div>
+                ) : (
                   <div className="due-date">
                     <SlCalender className="due" /> Due 22-02-2001
                   </div>
-                  <div className="done-delete-buttons">
-                    <MdOutlineFileDownloadDone
-                      onClick={() => {
-                        markAsDone(t.markDone, t.id);
-                      }}
-                      className="done-button"
-                    />
-                    <BsTrash
-                      onClick={() => {
-                        deleteTask(t.id);
-                      }}
-                      className="delete-button"
-                    />
-                  </div>
+                )}
+                <div className="done-delete-buttons">
+                  <MdOutlineFileDownloadDone
+                    onClick={() => {
+                      markAsDone(t.markDone, t.id);
+                    }}
+                    className="done-button"
+                  />
+                  <BsTrash
+                    onClick={() => {
+                      deleteTask(t.id);
+                    }}
+                    className="delete-button"
+                  />
                 </div>
-              );
-            }
-          })}
+              </div>
+            );
+          }
+        })}
       </div>
       <div className="sticky-add-button">
         <BasicUsage />

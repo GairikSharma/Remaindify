@@ -1,26 +1,21 @@
 import React from "react";
-import { Card, CardBody, Text, Box } from "@chakra-ui/react";
-import "./dashboard-card.css"
+import "./dashboard-card.css";
+import { MdAssignmentAdd } from "react-icons/md";
 
 function DashboardCard() {
   return (
     <>
-      <Card className="dashboard-card" __css={{width: "380px", height: "90px", border: "0.5px solid black", borderRadius: "7px",display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center"}}>
-        <CardBody __css={{width: "80%", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
-          <Box>
-            <Text>
-            Reminder
-          </Text>
-          <Text>
-            7
-          </Text>
-          </Box>
-
-          <Box>
-            Logo
-          </Box>
-        </CardBody>
-      </Card>
+      <div className="dashboard-card-body">
+        <div className="dashboard-card-left">
+          <div className="field-title">Assigned</div>
+          <div className="fiend-count-task">5</div>
+        </div>
+        <div className="dashboard-card-right">
+          <div className="dashboard-card-logo">
+            <MdAssignmentAdd />
+          </div>
+        </div>
+      </div>
     </>
   );
 }
