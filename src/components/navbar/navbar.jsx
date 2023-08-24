@@ -11,7 +11,7 @@ import BasicUsage from "../modal/modal";
 
 function Navbar() {
   const { sidebar, setShowSidebar } = useContext(ReminderContext);
-
+  
   const showSideNav = () => {
     setShowSidebar(true);
   };
@@ -35,9 +35,9 @@ function Navbar() {
             <Link className="link" to="/dashboard">
               Dashboard
             </Link>
-            <Link className="link" to="/profile">
+            {/* <Link className="link" to="/profile">
               Profile
-            </Link>
+            </Link> */}
           </div>
         </div>
         <RiMenu3Line
@@ -48,8 +48,8 @@ function Navbar() {
         <div className="sign-out">
           <BasicUsage />
           <Button
-            colorScheme="teal"
-            variant="outline"
+            colorScheme='gray'
+            color={"#427ef5"}
             onClick={() => auth.signOut()}
             mr={4}
             className="log-out-btn"

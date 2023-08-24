@@ -6,7 +6,7 @@ function Loader() {
   return (
     <>
       <div className="loader-body">
-        <Spinner size='xl' width={100} height={100} color="teal"/>
+        <Spinner size='xl' width={100} height={100} color="#427ef5"/>
       </div>
     </>
   );

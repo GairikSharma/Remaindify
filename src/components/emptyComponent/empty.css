@@ -1,0 +1,40 @@
+.empty-box {
+  width: 60%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  padding: 25px;
+  padding-right: 25px;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+}
+.trash-img {
+  top: 0;
+  width: 48%;
+  height: 100%;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.delete-image {
+  opacity: 0.1;
+}
+.message {
+  font-size: 35px;
+}
+@media only screen and (max-width: 640px) {
+  .empty-box {
+    width: 90%;
+  }
+  .trash-img{
+    width: 100%;
+  }
+}

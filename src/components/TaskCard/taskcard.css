@@ -3,7 +3,7 @@
   min-height: 200px;
   max-height: auto;
   border-radius: 15px;
-  background-color: rgba(209, 252, 252, 0.894);
+  background-color: #427ef5;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,7 @@
   margin: 10px;
   margin-left: 0;
   transition: 0.5s;
+  color: white;
 }
 .Title-more-btn {
   width: 100%;
@@ -58,7 +59,7 @@
   font-size: 18px;
 }
 .done {
-  color: green;
+  color: rgb(6, 255, 6);
 }
 .done-delete-buttons {
   width: 100%;
@@ -72,7 +73,7 @@
 }
 .done-button {
   font-size: 18px;
-  color: green;
+  color: rgb(9, 255, 9);
 }
 .delete-button {
   font-size: 18px;

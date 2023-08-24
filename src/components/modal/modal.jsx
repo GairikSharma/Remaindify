@@ -44,7 +44,7 @@ function BasicUsage() {
   };
   return (
     <>
-      <Button colorScheme="teal" variant="outline" onClick={onOpen}>
+      <Button colorScheme="gray" color={"#427ef5"} onClick={onOpen}>
         +
       </Button>
 
@@ -85,9 +85,10 @@ function BasicUsage() {
               Close
             </Button>
             <Button
-              colorScheme="green"
+              colorScheme="twitter"
               onClick={addRemainder}
               onClose={onClose}
+              disabled={title==="" || description==="" || date==="" ? true : false}
             >
               Add
             </Button>

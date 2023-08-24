@@ -11,7 +11,6 @@ function LazyTaskCard() {
       <div className="card-body">
         <div className="Title-more-btn">
           <div className="task-title">Task title</div>
-          <FiMoreVertical className="more-btn" />
         </div>
         <div className="task-description">Task Description</div>
         <div className="due-date">

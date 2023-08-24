@@ -7,13 +7,13 @@ import auth from "../../firebase";
 import { Button } from "@chakra-ui/react";
 
 function Sidebar() {
-  const { setShowSidebar } = useContext(ReminderContext);
+  const { sidebar, setShowSidebar } = useContext(ReminderContext);
   const hideSideNav = () => {
     setShowSidebar(false);
   };
   return (
     <>
-      <div className="sidebar-container">
+      <div className={sidebar ? "sidebar-container" : "animated-sidebar-container"}>
         <TfiClose className="close-icon" onClick={hideSideNav} />
         <div className="sidenav-links">
           <Link className="" to="/" onClick={hideSideNav}>
@@ -22,9 +22,9 @@ function Sidebar() {
           <Link className="" to="/dashboard" onClick={hideSideNav}>
             Dashboard
           </Link>
-          <Link className="" to="/profile" onClick={hideSideNav}>
+          {/* <Link className="" to="/profile" onClick={hideSideNav}>
             Profile
-          </Link>
+          </Link> */}
           <Button
             onClick={() => {
               auth.signOut();

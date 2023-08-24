@@ -12,6 +12,7 @@ import { MdOutlineFileDownloadDone } from "react-icons/md";
 import { BsTrash } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
 import { FiMoreVertical } from "react-icons/fi";
+import AddTask from "../components/AddTaskComponent/AddTask";
 
 function Home() {
   const [disable, setDisable] = useState(false);
@@ -28,7 +29,6 @@ function Home() {
       if (complete.email === auth.currentUser.email) {
         completedArr.push(complete.title, complete.description);
       }
-      console.log(completedArr);
     });
   }
 
@@ -55,92 +55,18 @@ function Home() {
       console.log(error);
     }
   };
+
+  const currentUserData = []
+  {
+    alltask.map((t) => {
+      if (t.email === auth.currentUser.email) {
+        currentUserData.push(t.title)
+      }
+    })
+  }
   return (
     <>
       <div className="tasks">
-        {/* <Card
-          __css={{
-            borderBottom: "none",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {alltask.map((t) => {
-            if (t.email === auth.currentUser.email) {
-              return (
-                <>
-                  <CardBody
-                    __css={{
-                      width: "80%",
-                      minHeight: "90px",
-                      maxHeight: "auto",
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-around",
-                      alignItems: "center",
-                      borderBottom: "0.5px rgba(136, 136, 136, 0.436) solid",
-                    }}
-                  >
-                    <Box
-                      __css={{
-                        width: "75%",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "start",
-                        alignItems: "flex-start",
-                        paddingLeft: "24px",
-                      }}
-                    >
-                      <Text
-                        className={t.status ? "title-diasable" : "taskTitle"}
-                      >
-                        {t.title}
-                      </Text>
-                      <Text
-                        className={
-                          t.status ? "description-disable" : "taskDescription"
-                        }
-                      >
-                        {t.description}
-                      </Text>
-                    </Box>
-                    <Box
-                      __css={{
-                        width: "25%",
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-evenly",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Button
-                        colorScheme="whatsapp"
-                        onClick={() => {
-                          markAsDone(t.markDone, t.id);
-                        }}
-                        className={t.status && "done-btn-disable"}
-                      >
-                        Mark as done
-                      </Button>
-                      <Button
-                        colorScheme="red"
-                        onClick={() => {
-                          deleteTask(t.id);
-                        }}
-                        className={t.status && "delete-btn-disabled"}
-                      >
-                        Delete
-                      </Button>
-                    </Box>
-                  </CardBody>
-                </>
-              );
-            }
-          })}
-        </Card> */}
-
         {alltask.map((t) => {
           if (t.email === auth.currentUser.email) {
             return (
@@ -187,10 +113,12 @@ function Home() {
             );
           }
         })}
+        
       </div>
       <div className="sticky-add-button">
         <BasicUsage />
       </div>
+      {currentUserData.length==0 && (<AddTask />)}
     </>
   );
 }

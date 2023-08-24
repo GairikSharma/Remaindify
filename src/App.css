@@ -2,11 +2,15 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "poppins";
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Apple Color Emoji", Helvetica, Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
 }
 body {
   width: 100%;
   min-height: 100vh;
+  max-height: auto;
 }
 .logo-2 {
   display: flex;

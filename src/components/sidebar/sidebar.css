@@ -5,11 +5,11 @@
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: teal;
+    background-color: #427ef5;
     color: white;
     z-index: 400;
+    transition: 1s;
 }
-
 .close-icon {
     position: absolute;
     top: 20px;

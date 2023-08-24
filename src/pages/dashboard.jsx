@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "../styles/dashboard.css";
-import { Card, CardBody, Text, Box } from "@chakra-ui/react";
+import { Card, CardBody, Text, Box, useStatStyles } from "@chakra-ui/react";
 import { BsAlarm } from "react-icons/bs";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { MdPendingActions } from "react-icons/md";
 import { ReminderContext } from "../context";
 import { useContext } from "react";
 import auth from "../firebase";
-import "../components/dashboard-card/dashboard-card.css"
-
+import "../components/dashboard-card/dashboard-card.css";
+import Empty from "../components/emptyComponent/Empty";
 
 function Dashboard() {
+  const ref = useRef();
+  const scrollComponent = (e) => {
+    e.current.scrollIntoView({ behavior: "smooth" });
+  };
   const { alltask } = useContext(ReminderContext);
   const arr = [];
   const statusArr = [];
+  const totaltaskTitle = [];
+  {
+    alltask.map((t) => {
+      if (t.email === auth.currentUser.email) {
+        totaltaskTitle.push(t);
+      }
+    });
+  }
+
   {
     alltask.map((totalTask) => {
       if (totalTask.email === auth.currentUser.email) {
@@ -26,109 +39,177 @@ function Dashboard() {
       }
     });
   }
+  const [showAll, setShowAll] = useState(true);
+  const [showCompleted, setShowCompleted] = useState(false);
+  const [showPending, setShowPending] = useState(false);
+
+  const showAllTask = () => {
+    setShowAll(true);
+    setShowCompleted(false);
+    setShowPending(false);
+  };
+
+  const showCompletedTask = () => {
+    setShowAll(false);
+
+    setShowPending(false);
+    setShowCompleted(true);
+  };
+
+  const showPendingTask = () => {
+    setShowAll(false);
+    setShowCompleted(false);
+    setShowPending(true);
+  };
   return (
     <>
-      <div className="dashboard-container">
-        {/* <DashboardCard /> */}
-        <div className="dashboard-card-body">
-          <div className="dashboard-card-left">
-            <div className="field-title">Total Task</div>
-            <div className="fiend-count-task">{arr.length}</div>
-          </div>
-          <div className="dashboard-card-right">
-            <div className="dashboard-card-logo">
-              <MdPendingActions />
-            </div>
-          </div>
-        </div>
-
-        <div className="dashboard-card-body">
-          <div className="dashboard-card-left">
-            <div className="field-title">Completed</div>
-            <div className="fiend-count-task">{statusArr.length}</div>
-          </div>
-          <div className="dashboard-card-right">
-            <div className="dashboard-card-logo">
-              <AiOutlineFileDone />
-            </div>
-          </div>
-        </div>
-
-        <div className="dashboard-card-body">
-          <div className="dashboard-card-left">
-            <div className="field-title">Pending</div>
-            <div className="fiend-count-task">{arr.length - statusArr.length}</div>
-          </div>
-          <div className="dashboard-card-right">
-            <div className="dashboard-card-logo">
-              <BsAlarm />
-            </div>
-          </div>
-        </div>
-        {/* <Card className="dashboard-card">
-          <CardBody
-            __css={{
-              width: "80%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
+      <div className="dashboard-parent-container">
+        <div className="dashboard-container">
+          {/* <div className="all-task-wrapper"> */}
+          {/* card  */}
+          <div
+            className="dashboard-card-body"
+            onClick={() => {
+              showAllTask();
+              scrollComponent(ref);
             }}
           >
-            <Box>
-              <Text className="dashboard-card-heading">Total Task</Text>
-              <Text className="dashboard-card-count">{arr.length}</Text>
-            </Box>
+            <div className="dashboard-card-left">
+              <div className="field-title">Total Task</div>
+              <div className="fiend-count-task">{arr.length}</div>
+            </div>
+            <div className="dashboard-card-right">
+              <div className="dashboard-card-logo">
+                <MdPendingActions />
+              </div>
+            </div>
+          </div>
 
-            <Box __css={{ fontSize: "44px" }}>
-              <BsAlarm className="dashboard-icon" />
-            </Box>
-          </CardBody>
-        </Card>
+          {/* all task list  */}
 
-        <Card className="dashboard-card">
-          <CardBody
-            __css={{
-              width: "80%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
+          {/* </div> */}
+
+          {/* <div className="completed-task-wrapper"> */}
+          <div
+            className="dashboard-card-body"
+            onClick={() => {
+              showCompletedTask();
+              scrollComponent(ref);
             }}
           >
-            <Box>
-              <Text className="dashboard-card-heading">Completed</Text>
-              <Text className="dashboard-card-count">{statusArr.length}</Text>
-            </Box>
+            <div className="dashboard-card-left">
+              <div className="field-title">Completed</div>
+              <div className="fiend-count-task">{statusArr.length}</div>
+            </div>
+            <div className="dashboard-card-right">
+              <div className="dashboard-card-logo">
+                <AiOutlineFileDone />
+              </div>
+            </div>
+          </div>
 
-            <Box __css={{ fontSize: "44px" }}>
-              <AiOutlineFileDone className="dashboard-icon" />
-            </Box>
-          </CardBody>
-        </Card>
+          {/* </div> */}
 
-        <Card className="dashboard-card">
-          <CardBody
-            __css={{
-              width: "80%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
+          {/* <div className="pending-task-wrapper"> */}
+          <div
+            className="dashboard-card-body"
+            onClick={() => {
+              showPendingTask();
+              scrollComponent(ref);
             }}
           >
-            <Box>
-              <Text className="dashboard-card-heading">Pending</Text>
-              <Text className="dashboard-card-count">
+            <div className="dashboard-card-left">
+              <div className="field-title">Pending</div>
+              <div className="fiend-count-task">
                 {arr.length - statusArr.length}
-              </Text>
-            </Box>
+              </div>
+            </div>
+            <div className="dashboard-card-right">
+              <div className="dashboard-card-logo">
+                <BsAlarm />
+              </div>
+            </div>
+          </div>
 
-            <Box __css={{ fontSize: "44px" }}>
-              <MdPendingActions className="dashboard-icon" />
-            </Box>
-          </CardBody>
-        </Card> */}
+          {/* </div> */}
+        </div>
+
+        <div className="task-list">
+          {totaltaskTitle.length == 0 && <Empty />}
+          {showAll && (
+            <div className="all-task-list" ref={ref}>
+              {totaltaskTitle.map((item, index) => {
+                return (
+                  <div className="single-card">
+                    <div className="title-and-desc">
+                      <div key={index} className="a-t-l-title">
+                        {item.title}
+                      </div>
+                      <div key={index} className="a-t-l-description">
+                        {item.description}
+                      </div>
+                    </div>
+                    <div className="status-button">
+                      {item.status ? (
+                        <button className="completed-btn">Completed</button>
+                      ) : (
+                        <button className="pending-btn">Pending</button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {showCompleted && (
+            <div className="completed-task-list" ref={ref}>
+              {totaltaskTitle.map((item, index) => {
+                if (item.status) {
+                  return (
+                    <div className="single-card">
+                      <div className="title-and-desc">
+                        <div key={index} className="a-t-l-title">
+                          {item.title}
+                        </div>
+                        <div key={index} className="a-t-l-description">
+                          {item.description}
+                        </div>
+                      </div>
+                      <div className="status-button">
+                        <button className="completed-btn">Completed</button>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          )}
+
+          {showPending && (
+            <div className="pending-task-list" ref={ref}>
+              {totaltaskTitle.map((item, index) => {
+                if (!item.status) {
+                  return (
+                    <div className="single-card">
+                      <div className="title-and-desc">
+                        <div key={index} className="a-t-l-title">
+                          {item.title}
+                        </div>
+                        <div key={index} className="a-t-l-description">
+                          {item.description}
+                        </div>
+                      </div>
+                      <div className="status-button">
+                        <button className="pending-btn">Pending</button>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

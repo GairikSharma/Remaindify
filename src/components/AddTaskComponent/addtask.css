@@ -1,0 +1,48 @@
+.addtask-wrapper {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.addtask {
+    position: relative;
+    width: 48%;
+    height: 500px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+.add-task-img {
+    width: 100%;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.2;
+    background-size: 100% 100%;
+}
+.add-task-title {
+    z-index: 100;
+    font-size: 24px;
+    color: grey;
+    font-weight: 700;
+}
+.ins-title {
+    z-index: 100;
+    font-size: 18px;
+    font-weight: 500;
+    color: grey;
+}
+@media only screen and (max-width: 600px) {
+    .addtask {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
