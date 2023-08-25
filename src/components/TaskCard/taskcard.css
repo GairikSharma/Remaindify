@@ -3,7 +3,7 @@
   min-height: 200px;
   max-height: auto;
   border-radius: 15px;
-  background-color: #427ef5;
+  background-color: rgba(232, 232, 232, 0.464);
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,8 @@
   margin: 10px;
   margin-left: 0;
   transition: 0.5s;
-  color: white;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
 .Title-more-btn {
   width: 100%;
