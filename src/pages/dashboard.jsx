@@ -9,6 +9,7 @@ import { useContext } from "react";
 import auth from "../firebase";
 import "../components/dashboard-card/dashboard-card.css";
 import Empty from "../components/emptyComponent/Empty";
+import Chart from "../components/Chart/Chart";
 
 function Dashboard() {
   const ref = useRef();
@@ -19,6 +20,7 @@ function Dashboard() {
   const arr = [];
   const statusArr = [];
   const totaltaskTitle = [];
+
   {
     alltask.map((t) => {
       if (t.email === auth.currentUser.email) {
@@ -209,6 +211,10 @@ function Dashboard() {
               })}
             </div>
           )}
+
+          <div className="chart-wrapper">
+            <Chart />
+          </div>
         </div>
       </div>
     </>
