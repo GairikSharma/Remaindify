@@ -56,13 +56,33 @@ function Home() {
     }
   };
 
-  const currentUserData = []
+  const currentUserData = [];
   {
     alltask.map((t) => {
       if (t.email === auth.currentUser.email) {
-        currentUserData.push(t.title)
+        currentUserData.push(t.title);
       }
-    })
+    });
+  }
+
+  //format date
+  function formatDate(dateString) {
+    const options = { day: "numeric", month: "long" };
+    const formattedDate = new Date(dateString).toLocaleDateString(
+      undefined,
+      options
+    );
+    return formattedDate;
+  }
+
+  //format time
+  function formatTime(dateString) {
+    const options = { hour: "numeric", minute: "numeric" };
+    const formattedTime = new Date(dateString).toLocaleTimeString(
+      undefined,
+      options
+    );
+    return formattedTime;
   }
   return (
     <>
@@ -92,7 +112,7 @@ function Home() {
                   </div>
                 ) : (
                   <div className="due-date">
-                    <SlCalender className="due" /> Due 22-02-2001
+                    <SlCalender className="due" />Due {formatDate(t.date)}<span> </span>{formatTime(t.date)}
                   </div>
                 )}
                 <div className="done-delete-buttons">
@@ -113,12 +133,11 @@ function Home() {
             );
           }
         })}
-        
       </div>
       <div className="sticky-add-button">
         <BasicUsage />
       </div>
-      {currentUserData.length==0 && (<AddTask />)}
+      {currentUserData.length == 0 && <AddTask />}
     </>
   );
 }
