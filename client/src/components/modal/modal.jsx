@@ -33,19 +33,29 @@ function BasicUsage() {
   } = useContext(ReminderContext);
 
   const addRemainder = async (e) => {
-    e.preventDefault();
-    const newRemainder = await addDoc(collection(db, "reminders"), {
-      title: title,
-      description: description,
-      date: date,
-      email: auth.currentUser.email,
-    });
-    window.location.reload(true);
+    if (title === "" || description === "" || date === "") {
+      alert("Enter all the details properly");
+    } else if (title === "") {
+      alert("Enter the title");
+    } else if (description === "") {
+      alert("Enter the description");
+    } else if (date === "") {
+      alert("Enter the date");
+    } else {
+      e.preventDefault();
+      const newRemainder = await addDoc(collection(db, "reminders"), {
+        title: title,
+        description: description,
+        date: date,
+        email: auth.currentUser.email,
+      });
+      window.location.reload(true);
+    }
   };
   return (
     <>
       <Button colorScheme="gray" color={"#427ef5"} onClick={onOpen}>
-        +
+        Add Task +
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -88,7 +98,9 @@ function BasicUsage() {
               colorScheme="twitter"
               onClick={addRemainder}
               onClose={onClose}
-              disabled={title==="" || description==="" || date==="" ? true : false}
+              disabled={
+                title === "" || description === "" || date === "" ? true : false
+              }
             >
               Add
             </Button>

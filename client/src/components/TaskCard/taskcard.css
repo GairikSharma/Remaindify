@@ -28,6 +28,7 @@
 }
 .task-title-diasable {
   opacity: 0.4;
+  text-decoration: line-through;
 }
 .more-btn {
   width: 18px;
@@ -49,6 +50,7 @@
   min-height: 44px;
   max-height: 180px;
   overflow-y: scroll;
+  text-decoration: line-through;
 }
 .due-date {
   
@@ -82,10 +84,12 @@
 .done-button {
   font-size: 18px;
   color: rgb(9, 255, 9);
+  cursor: pointer;
 }
 .delete-button {
   font-size: 18px;
   color: red;
+  cursor: pointer;
 }
 ::-webkit-scrollbar {
   background: transparent;

@@ -97,7 +97,7 @@ function Home() {
                   >
                     {t.title}
                   </div>
-                  <FiMoreVertical className="more-btn" />
+                  {/* <FiMoreVertical className="more-btn" /> */}
                 </div>
                 <div
                   className={

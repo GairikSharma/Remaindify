@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import landing from "../assets/images/landing.jpg";
 import bannerSmall from "../assets/images/bannerSmall.jpg"
 import "../styles/landing.css";
+import { FcParallelTasks } from "react-icons/fc";
 import googlebtn from "../assets/images/googlebtn.png";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../firebase";
@@ -30,7 +31,7 @@ function Landing() {
         </div>
         <div className="landing-right" data-aos="fade-left">
           <div className="logo-2">
-            <BsListTask />
+            <FcParallelTasks className="a-logo" />
             Task Genius
           </div>
           <div className="landing-heading" data-aos="fade-left">

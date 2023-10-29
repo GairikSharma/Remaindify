@@ -3,7 +3,8 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
 import auth from "../../firebase";
-import { BsListTask } from "react-icons/bs";
+import { FcParallelTasks } from "react-icons/fc";
+import { FiLogOut } from "react-icons/fi";
 import { RiMenu3Line } from "react-icons/ri";
 import { ReminderContext } from "../../context";
 import Sidebar from "../sidebar/Sidebar";
@@ -11,20 +12,18 @@ import BasicUsage from "../modal/modal";
 
 function Navbar() {
   const { sidebar, setShowSidebar } = useContext(ReminderContext);
-  
+
   const showSideNav = () => {
     setShowSidebar(true);
   };
 
   return (
     <>
-    {
-      sidebar && (<Sidebar />)
-    }
+      {sidebar && <Sidebar />}
       <div className="navbar">
         <div className="links-and-logo">
           <div className="logo-2">
-            <BsListTask />
+            <FcParallelTasks className="a-logo" />
             Task Genius
           </div>
 
@@ -45,16 +44,17 @@ function Navbar() {
           style={{ fontSize: "24px", marginRight: "10px" }}
           onClick={showSideNav}
         />
+
         <div className="sign-out">
           <BasicUsage />
           <Button
-            colorScheme='gray'
+            colorScheme="gray"
             color={"#427ef5"}
             onClick={() => auth.signOut()}
             mr={4}
             className="log-out-btn"
           >
-            Log Out
+            <FiLogOut />
           </Button>
         </div>
       </div>
