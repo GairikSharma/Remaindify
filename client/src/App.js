@@ -53,6 +53,7 @@ function App() {
   return (
     <ChakraProvider>
       <BrowserRouter>
+      
         {isLoading ? (
           <Loader />
         ) : (
