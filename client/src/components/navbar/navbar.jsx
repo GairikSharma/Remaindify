@@ -25,7 +25,7 @@ function Navbar() {
         <div className="links-and-logo">
           <div className="logo-2">
             <BsListTask />
-            Task Genius
+            Task Genius Logo
           </div>
 
           <div className="links">
