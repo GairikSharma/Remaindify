@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ReminderContext } from "../../context";
 import auth from "../../firebase";
 import {
@@ -14,10 +14,15 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
-
-import firebase from "../../firebase";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
+import "./modal.css";
 
 function BasicUsage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,16 +36,27 @@ function BasicUsage() {
     email,
     setEmail,
   } = useContext(ReminderContext);
+  const [showErrAlert, setShowErrAlert] = useState(false);
+  const [popupTime, setPopupTime] = useState(true);
+  const [msg, setMsg] = useState("Enter all the details properly");
+
+  const showAlert = () => {
+    setShowErrAlert(true);
+    setTimeout(() => {
+      setShowErrAlert(false);
+    }, 3000);
+  };
 
   const addRemainder = async (e) => {
     if (title === "" || description === "" || date === "") {
-      alert("Enter all the details properly");
-    } else if (title === "") {
-      alert("Enter the title");
-    } else if (description === "") {
-      alert("Enter the description");
-    } else if (date === "") {
-      alert("Enter the date");
+      if (title === "" && description != "" && date != "") {
+        setMsg("Enter title");
+      } else if (description === "" && title != "" && date != "") {
+        setMsg("Enter description");
+      } else if (date === "" && description != "" && title != "") {
+        setMsg("Enter date");
+      }
+      showAlert();
     } else {
       e.preventDefault();
       const newRemainder = await addDoc(collection(db, "reminders"), {
@@ -61,6 +77,13 @@ function BasicUsage() {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
+          {showErrAlert && (
+            <Alert status="error" className="alert" zIndex={"100"}>
+              <AlertIcon />
+              <AlertTitle>Error!</AlertTitle>
+              <AlertDescription>{msg}</AlertDescription>
+            </Alert>
+          )}
           <ModalHeader>Add Task</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
